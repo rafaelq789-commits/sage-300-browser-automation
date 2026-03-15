@@ -1,7 +1,7 @@
 {
-  "name": "sage-300-browser-automation",
+  "name": "@browser-automation-hub/sage-300-browser-automation",
   "version": "1.0.0",
-  "description": "Browser automation for Sage 300 ERP — automate accounts payable, journal entries, inventory management, financial reporting, and data entry without the Sage SDK.",
+  "description": "Browser automation for Sage 300 ERP — automate accounts payable, journal entries, and financial reporting",
   "main": "src/actions.js",
   "scripts": {
     "start": "node examples/basic-login.js",
@@ -16,7 +16,7 @@
     "browser-automation",
     "puppeteer",
     "playwright",
-    "anchorbrowser",
+    "anchor-browser",
     "nodejs"
   ],
   "license": "MIT",
@@ -35,5 +35,8 @@
   "homepage": "https://github.com/Browser-Automation-Hub/sage-300-browser-automation#readme",
   "bugs": {
     "url": "https://github.com/Browser-Automation-Hub/sage-300-browser-automation/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
